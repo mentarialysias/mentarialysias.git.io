@@ -21,6 +21,26 @@
             });
         });
     </script>
+	    <script src="https://code.jquery.com/jquery-3.6.0.js"
+                    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+                    crossorigin="anonymous"></script>
+	    <script type = "text/javascript">
+		$(function(){
+                $.get('./mentari.json', function(obj) {
+		var str = "<table border = 1>";
+			str += "<tr><td>No</td><td>Image</td><td>Judul</td><td>Rating</td><td>Waktu_Scrapping</td></tr>";
+			$.each(obj,function(n,data){
+				str += "<tr><td>"+data.no+"</td>";
+				str += "<td><img src=" + data.img + ">"+"</td>";
+				str += "<td>"+ data.tittle+"</td>";
+				str += "<td>"+ data.rate+"</td>";
+				str += "<td>"+ data.scrapingTime+"</td></tr>";
+			});
+			str += "</table>";
+			$('#mentari_json').html(str);
+			});
+			});
+		</script>
     </head>
     <body>
         <header>
@@ -203,7 +223,8 @@
 					<iframe class="gambar" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.144111890299!2d107.57267781459247!3d-6.873330595033116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e745661ff923%3A0x849f11fc875bd141!2sPOLBAN%20KAMPUS.!5e0!3m2!1sid!2sid!4v1645424426285!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 					<h1>Headline Repulika Online</h1>
 					<div id="headline_json"></div>
-
+			    		<h1>Scraping dengan selenium </h1>
+			    		<div id="mentari_json"></div
 					</section>
                 </article>
             </div>
